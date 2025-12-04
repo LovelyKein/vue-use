@@ -1,0 +1,20 @@
+{
+  "name": "@kyle-vueuse/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {},
+  "keywords": [],
+  "author": "Kyle",
+  "email": "lovelykein@foxmail.com",
+  "license": "ISC",
+  "description": "VueUse Composition API",
+  "dependencies": {
+    "vue": "^3.5.25"
+  },
+  "devDependencies": {
+    "rollup": "^4.53.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "typescript": "^5.9.3"
+  }
+}
