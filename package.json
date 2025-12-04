@@ -7,7 +7,7 @@
     "lint": "eslint --fix",
     "commit": "git-cz",
     "prepare": "husky",
-    "spellcheck": "cspell lint --dot --gitignore --cache --show-suggestions  \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\""
+    "spellcheck": "cspell lint --dot --gitignore --show-suggestions  \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\""
   },
   "config": {
     "commitizen": {
