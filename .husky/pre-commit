@@ -1,1 +1,1 @@
-pnpm lint && pnpm spellcheck
+pnpm exec lint-staged && pnpm run spellcheck

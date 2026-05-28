@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=9.0.0",
+    "pnpm": ">=10.0.0"
+  },
   "scripts": {
     "lint": "eslint --fix",
     "commit": "git-cz",
     "prepare": "husky",
-    "spellcheck": "cspell lint --dot --gitignore --show-suggestions  \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\""
+    "spellcheck": "cspell lint --dot --gitignore --show-suggestions  \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\"",
+    "publish": "pnpm --filter @kyle-vueuse/core publish"
   },
   "config": {
     "commitizen": {
@@ -20,20 +27,51 @@
     "composition-api",
     "utils"
   ],
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --cache --write"
+    ],
+    "**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --cache --write --parser=typescript"
+    ],
+    "**/*.{md,json,html}": [
+      "prettier --cache --write"
+    ],
+    "**/*.{vue}": [
+      "prettier --cache --write",
+      "vue-tsc --noEmit"
+    ]
+  },
   "author": "Kyle",
   "email": "lovelykein@foxmail.com",
   "license": "ISC",
   "description": "VueUse Composition API",
   "devDependencies": {
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
+    "@commitlint/format": "^21.0.1",
     "@eslint/js": "^9.39.1",
+    "@types/node": "^25.9.1",
+    "commitizen": "^4.3.1",
+    "commitlint": "^21.0.1",
+    "cspell": "^9.4.0",
+    "cz-git": "1.12.0",
     "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
     "eslint-plugin-vue": "^10.6.2",
     "globals": "^16.5.0",
-    "typescript-eslint": "^8.48.1",
-    "eslint-plugin-simple-import-sort": "^12.1.0",
     "husky": "^9.1.6",
-    "commitizen": "^4.3.1",
-    "cz-git": "1.12.0",
-    "cspell": "^9.4.0"
+    "lint-staged": "^17.0.5",
+    "np": "^10.2.0",
+    "nrm": "^2.1.0",
+    "prettier": "^3.8.3",
+    "turbo": "^2.6.3",
+    "typescript-eslint": "^8.48.1",
+    "vue-eslint-parser": "^10.4.0",
+    "vue-tsc": "^3.3.2"
   }
 }

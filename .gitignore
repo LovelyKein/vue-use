@@ -1,6 +1,10 @@
 node_modules
-**/.vitepress
 **/dist
-.editorconfig
-.miaomaignore
 .dependencygraph
+
+**/.vitepress/cache/
+
+
+.env
+.env.test
+.env.development

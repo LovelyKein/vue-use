@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "allowJs": true,
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": false,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "noUnusedParameters": false
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base"
+}

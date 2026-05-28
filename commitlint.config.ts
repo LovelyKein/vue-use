@@ -1,6 +1,14 @@
+import { readdirSync } from 'node:fs'
+import { resolve } from 'node:path'
+
 import { defineConfig } from 'cz-git'
 
+const packages = readdirSync(resolve(import.meta.dirname, 'packages'))
+const apps = readdirSync(resolve(import.meta.dirname, 'apps'))
+
 export default defineConfig({
+  extends: ['@commitlint/config-conventional'],
+  formatter: '@commitlint/format',
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
   },
@@ -50,7 +58,7 @@ export default defineConfig({
     useAI: false,
     aiNumber: 1,
     themeColorCode: '',
-    scopes: [],
+    scopes: [...packages, ...apps],
     allowCustomScopes: true,
     allowEmptyScopes: true,
     customScopesAlign: 'bottom',

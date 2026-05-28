@@ -1,33 +1,27 @@
 import js from '@eslint/js'
 import { defineConfig } from 'eslint/config'
+import prettierConfig from 'eslint-config-prettier'
+import prettier from 'eslint-plugin-prettier'
 import importSort from 'eslint-plugin-simple-import-sort'
-import pluginVue from 'eslint-plugin-vue'
+import vue from 'eslint-plugin-vue'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import vueParser from 'vue-eslint-parser'
 
 // 默认生成配置
 export default defineConfig([
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,vue}'],
-    plugins: {
-      js,
-      'simple-import-sort': importSort
-    },
-    extends: ['js/recommended'],
-    languageOptions: { globals: globals.browser },
-    rules: {
-      'no-console': 'error',
-      'no-unused-vars': 'warn',
-      'no-undef': 'warn',
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'warn'
-    }
+    ignores: ['**/node_modules/**', '**/dist/**', '**/public/**', '**/.vitepress/cache/**']
   },
-  tseslint.configs.recommended,
-  pluginVue.configs['flat/recommended'],
   {
-    files: ['**/*.vue'],
+    files: ['**/*.{ts,js,jsx,tsx,vue}'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended, vue.configs['flat/recommended'], prettierConfig],
     languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      },
+      parser: vueParser,
       parserOptions: {
         parser: tseslint.parser,
         ecmaVersion: 'latest',
@@ -38,63 +32,22 @@ export default defineConfig([
       }
     },
     plugins: {
-      vue: pluginVue
+      'simple-import-sort': importSort,
+      vue,
+      prettier
     },
     rules: {
+      'no-console': 'warn',
+      'no-unused-vars': 'warn',
+      'no-undef': 'warn',
+
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'warn',
+
+      'prettier/prettier': 'error',
+
       'vue/valid-define-emits': 'error', // 校验 defineEmits 定义是否正确
       'vue/multi-word-component-names': 'off' // 校验组件名称是否为多单词
     }
   }
 ])
-
-// export default defineConfig([
-//   {
-//     languageOptions: {
-//       globals: {
-//         ...globals.browser,
-//         computed: 'readonly',
-//         defineEmits: 'readonly',
-//         defineExpose: 'readonly',
-//         defineProps: 'readonly',
-//         onMounted: 'readonly',
-//         onUnmounted: 'readonly',
-//         reactive: 'readonly',
-//         ref: 'readonly',
-//         shallowReactive: 'readonly',
-//         shallowRef: 'readonly',
-//         toRef: 'readonly',
-//         toRefs: 'readonly',
-//         watch: 'readonly',
-//         watchEffect: 'readonly'
-//       }
-//     },
-//     name: 'xxx/vue/setup',
-//     plugins: {
-//       vue: pluginVue
-//     }
-//   },
-//   pluginVue.configs['flat/recommended'],
-//   {
-//     files: ['**/*.{js,jsx,ts,tsx,vue}'],
-//     rules: {
-//       ...js.configs.recommended.rules,
-//       'no-unused-vars': 'off',
-//       'no-undef': 'warn',
-//       'no-console': 'error',
-//       'simple-import-sort/imports': 'error',
-//       'simple-import-sort/exports': 'error',
-//       'vue/valid-define-emits': 'error'
-//     },
-//     languageOptions: {
-//       parserOptions: {
-//         ecmaVersion: 'latest',
-//         ecmaFeatures: {
-//           jsx: true
-//         },
-//         extraFileExtensions: ['.vue'],
-//         parser: tseslint.parser
-//       }
-//     },
-//     plugins: { vue: pluginVue, 'simple-import-sort': importSort }
-//   }
-// ])

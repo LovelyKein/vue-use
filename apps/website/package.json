@@ -1,0 +1,21 @@
+{
+  "name": "@kyle-vueuse/website",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "Kyle",
+  "email": "lovelykein@foxmail.com",
+  "license": "ISC",
+  "description": "Vue Composition API",
+  "dependencies": {
+    "@kyle-vueuse/core": "workspace:*"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

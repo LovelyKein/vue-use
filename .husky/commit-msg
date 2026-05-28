@@ -1,0 +1,2 @@
+# exec 执行本地.bin下的命令
+pnpm exec commitlint --edit
