@@ -12,18 +12,21 @@ hero:
   actions:
     - theme: brand
       text: 立即开始
-      link: /guides
+      link: /guides/what
     - theme: alt
       text: API 文档
-      link: /core
+      link: /pages/useToggle
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 🦾
+    title: 类型安全
+    details: Typescript 编写，完整类型约束
+  - icon: 🚀
+    title: 灵活
+    details: 易于使用，方便管理，团队横向产出
+  - icon: 🔋
+    title: 持续迭代
+    details: 基于基础工程化框架，可持续迭代新 Composition API
 ---
 
 <style>

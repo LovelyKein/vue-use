@@ -2,40 +2,57 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  // 语言配置
   lang: 'zh-CN',
+  // 站点标题
   title: 'Kyle-VueUse',
+  // 站点描述
   description: '基于 Vue 实现的 Composition API 库',
+  // 站点图标
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/static/favicon.svg' }]],
+  // 主题配置
   themeConfig: {
+    // 站点logo
     logo: '/static/vitepress-logo.svg',
-    // 导航栏配置
+    // 顶部右侧导航栏配置
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'API', link: '/core' }
+      { text: '主页', link: '/' },
+      { text: '文档', link: '/pages/useToggle' }
     ],
-    // 侧边栏配置
+    // 页面侧边栏配置（根据路径匹配分类）
     sidebar: {
-      '/guides/': [
+      '/guides': [
         {
           text: '指南',
-          items: [{ text: '立即开始', link: '/guides' }]
-        }
-      ],
-      '/core/': [
-        {
-          text: '状态',
           items: [
-            { text: 'useToggle', link: '/core/useToggle' },
-            { text: 'useRefHistory', link: '/core/useRefHistory' }
+            { text: '动机', link: '/guides/what' },
+            { text: '快速上手', link: '/guides/start' }
           ]
         },
         {
-          text: '浏览器',
-          items: [{ text: 'useMouse', link: '/core/useMouse' }]
+          text: 'API 文档',
+          items: [
+            { text: '数据&状态', link: '/pages/useToggle' },
+            { text: 'DOM 元素', link: '/pages/useMouse' },
+            { text: '网络', link: '/pages/useFetch' }
+          ]
+        }
+      ],
+      '/pages': [
+        {
+          text: '数据&状态',
+          items: [
+            { text: 'useToggle', link: '/pages/useToggle' },
+            { text: 'useRefHistory', link: '/pages/useRefHistory' }
+          ]
+        },
+        {
+          text: 'DOM 元素',
+          items: [{ text: 'useMouse', link: '/pages/useMouse' }]
         },
         {
           text: '网络',
-          items: [{ text: 'useFetch', link: '/core/useFetch' }]
+          items: [{ text: 'useFetch', link: '/pages/useFetch' }]
         }
       ]
     },
@@ -48,7 +65,7 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/LovelyKein' },
       { icon: 'gitee', link: 'https://gitee.com/LovelyKein' },
-      { icon: 'bilibili', link: 'https://space.bilibili.com/1402280' }
+      { icon: 'bilibili', link: 'https://space.bilibili.com/417059354?spm_id_from=333.33.0.0' }
     ]
   }
 })

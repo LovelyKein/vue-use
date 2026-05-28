@@ -14,7 +14,12 @@
     "commit": "git-cz",
     "prepare": "husky",
     "spellcheck": "cspell lint --dot --gitignore --show-suggestions  \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\"",
-    "publish": "pnpm --filter @kyle-vueuse/core publish"
+    "dev:doc": "pnpm --filter website dev",
+    "build:doc": "pnpm --filter website build",
+    "preview:doc": "pnpm --filter website preview",
+    "dev:core": "pnpm --filter core dev",
+    "build:core": "pnpm --filter core build",
+    "publish": "pnpm --filter core publish"
   },
   "config": {
     "commitizen": {
@@ -39,7 +44,7 @@
     "**/*.{md,json,html}": [
       "prettier --cache --write"
     ],
-    "**/*.{vue}": [
+    "**/*.vue": [
       "prettier --cache --write",
       "vue-tsc --noEmit"
     ]
