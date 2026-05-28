@@ -1,7 +1,10 @@
-import type { Ref } from 'vue-demi'
-import { ref } from 'vue-demi'
+import type { Ref } from 'vue'
+import { ref } from 'vue'
 
-import { UseToggleReturn } from './types'
+export interface UseToggleReturn<T> {
+  value: Ref<T>
+  toggle: () => void
+}
 
 export function useToggle<T = boolean>(options: T[] = [false as T, true as T], defaultIndex = 0): UseToggleReturn<T> {
   const initialValue = options[defaultIndex]
