@@ -51,7 +51,7 @@
   },
   "author": "Kyle",
   "email": "lovelykein@foxmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "description": "VueUse Composition API",
   "devDependencies": {
     "@commitlint/cli": "^21.0.1",

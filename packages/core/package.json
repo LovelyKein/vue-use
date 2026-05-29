@@ -1,7 +1,6 @@
 {
   "name": "@kyle-vueuse/core",
   "version": "1.0.0",
-  "main": "index.js",
   "type": "module",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",

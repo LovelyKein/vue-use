@@ -2,37 +2,31 @@ import type { Ref } from 'vue'
 import { ref, watch } from 'vue'
 
 export type StorageMode = 'local' | 'session'
-
 export interface UseStorageOptions<T> {
   // 初始值
   initialValue: T
   // 过期时间
   // 单位：秒
-  // 默认值：0，表示不过期
+  // 默认值：1天
   expired?: number
   // 存储模式
   // 默认值：local
   mode?: StorageMode
 }
-
 export interface UseStorageReturn<T> {
   value: Ref<T>
   set: (key: T, newExpired?: number) => void
   remove: () => void
 }
-
 export interface StorageItem<T> {
   value: T
   timestamp: number
 }
 
+// 存储键前缀
 const prefix: string = 'useStorage#'
 
-// function getAllKeys(storage: Storage, prefix: string): string[] {
-//   const items = Object.keys(storage)
-//   return items.filter((item) => item.startsWith(prefix))
-// }
-
+// 判断存储键是否存在
 function existKey(storage: Storage, key: string): boolean {
   return storage.getItem(key) !== null
 }
@@ -42,8 +36,14 @@ function isNonNegativeInteger(num: number): boolean {
   return Number.isInteger(num) && num >= 0
 }
 
+/**
+ * 存储数据
+ * @param key 存储键
+ * @param options 存储选项
+ * @returns 存储返回值
+ */
 export function useStorage<T>(key: string, options: UseStorageOptions<T>): UseStorageReturn<T> {
-  const { mode = 'local', initialValue, expired = 0 } = options
+  const { mode = 'local', initialValue, expired = 60 * 60 * 24 } = options
 
   // 校验过期时间是否为非负整数
   if (!isNonNegativeInteger(expired)) {
@@ -61,31 +61,6 @@ export function useStorage<T>(key: string, options: UseStorageOptions<T>): UseSt
   }
   const storageKey = `${prefix}${key}`
 
-  // 内部读取与校验逻辑
-  const read = (): T => {
-    const raw = storage.getItem(storageKey)
-    if (raw !== null && raw) {
-      // 校验是否过期 (timestamp 为 0 表示不过期)
-      try {
-        const data = JSON.parse(raw) as StorageItem<T>
-        // 已过期
-        if (data.timestamp > 0 && Date.now() > data.timestamp) {
-          storage.removeItem(storageKey) // 不能调用 remove() 避免 TDZ
-          return initialValue
-        }
-        return data.value
-      } catch (error) {
-        console.error('useStorage 读取失败，JSON.parse解析异常', error)
-        // 降级处理：解析失败时清理脏数据，不要直接 throw Error 导致组件白屏崩溃
-        storage.removeItem(storageKey)
-        return initialValue
-      }
-    }
-    return initialValue
-  }
-
-  const v = ref<T>(read())
-
   // 如果初始时没有有效数据，执行一次持久化
   if (!existKey(storage, storageKey)) {
     try {
@@ -97,9 +72,34 @@ export function useStorage<T>(key: string, options: UseStorageOptions<T>): UseSt
         })
       )
     } catch (error) {
-      console.error('useStorage 初始化序列化失败', error)
+      throw new Error('useStorage 初始化序列化失败' + error)
     }
   }
+
+  // 内部读取与校验逻辑
+  const read = (): T => {
+    const raw = storage.getItem(storageKey)
+    // 降级保护：理论上经过前面的初始化不该为 null，但为防万一（如被其他 Tab 删掉）
+    if (!raw) return initialValue
+
+    // 校验是否过期 (timestamp 为 0 表示不过期)
+    try {
+      const data = JSON.parse(raw) as StorageItem<T>
+      // 已过期，删除并返回初始值
+      if (data.timestamp > 0 && Date.now() > data.timestamp) {
+        storage.removeItem(storageKey) // 不能调用 remove() 避免 TDZ
+        return initialValue
+      }
+      return data.value
+    } catch (error: unknown) {
+      console.error('useStorage 读取失败，JSON.parse解析异常', error)
+      // 降级处理：解析失败时清理脏数据，不要直接 throw Error 导致组件白屏崩溃
+      storage.removeItem(storageKey)
+      return initialValue
+    }
+  }
+
+  const v = ref<T>(read())
 
   // 锁标志：区分是内部 set/remove 触发的，还是用户直接修改 v.value 触发的
   let isInternalUpdate = false

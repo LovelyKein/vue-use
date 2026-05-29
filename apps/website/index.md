@@ -27,6 +27,9 @@ features:
   - icon: 🔋
     title: 持续迭代
     details: 基于基础工程化框架，可持续迭代新 Composition API
+  - icon: 🌟
+    title: 易于维护
+    details: 代码质量高，注释详细，方便维护
 ---
 
 <style>

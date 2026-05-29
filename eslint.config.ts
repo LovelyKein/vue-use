@@ -37,7 +37,7 @@ export default defineConfig([
       prettier
     },
     rules: {
-      'no-console': 'warn',
+      'no-console': ['error', { allow: ['warn', 'error'] }],
       'no-unused-vars': 'warn',
       'no-undef': 'warn',
 

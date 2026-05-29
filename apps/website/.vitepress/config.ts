@@ -43,25 +43,37 @@ export default defineConfig({
           text: '数据&状态',
           items: [
             { text: 'useToggle', link: '/pages/useToggle' },
-            { text: 'useRefHistory', link: '/pages/useRefHistory' }
+            { text: 'useStorage', link: '/pages/useStorage' },
+            { text: 'useHistory', link: '/pages/useHistory' }
           ]
         },
         {
           text: 'DOM 元素',
+          items: [{ text: 'useElement', link: '/pages/useElement' }]
+        },
+        {
+          text: '异步任务',
+          items: [
+            { text: 'useTasks', link: '/pages/useTasks' },
+            { text: 'useFetch', link: '/pages/useFetch' }
+          ]
+        },
+        {
+          text: '事件',
           items: [{ text: 'useMouse', link: '/pages/useMouse' }]
         },
         {
-          text: '网络',
-          items: [{ text: 'useFetch', link: '/pages/useFetch' }]
+          text: '其他',
+          items: [{ text: 'useTitle', link: '/pages/useTitle' }]
         }
       ]
     },
     // 右侧大纲配置
     outline: {
-      label: '大纲',
+      label: '目录',
       level: 2
     },
-
+    // 顶部右侧导航栏配置（社交链接）
     socialLinks: [
       { icon: 'github', link: 'https://github.com/LovelyKein' },
       { icon: 'gitee', link: 'https://gitee.com/LovelyKein' },
