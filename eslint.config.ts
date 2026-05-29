@@ -11,7 +11,7 @@ import vueParser from 'vue-eslint-parser'
 // 默认生成配置
 export default defineConfig([
   {
-    ignores: ['**/node_modules/**', '**/dist/**', '**/public/**', '**/.vitepress/cache/**']
+    ignores: ['**/node_modules/**', '**/dist/**', '**/public/**', '**/.vitepress/cache/**', '**/.vitepress/dist/**']
   },
   {
     files: ['**/*.{ts,js,jsx,tsx,vue}'],
