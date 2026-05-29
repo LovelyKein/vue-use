@@ -33,8 +33,10 @@ export default defineConfig({
           text: 'API 文档',
           items: [
             { text: '数据&状态', link: '/pages/useToggle' },
-            { text: 'DOM 元素', link: '/pages/useMouse' },
-            { text: '网络', link: '/pages/useFetch' }
+            { text: 'DOM 元素', link: '/pages/useElement' },
+            { text: '异步任务', link: '/pages/useTasks' },
+            { text: '事件', link: '/pages/useMouse' },
+            { text: '浏览器', link: '/pages/useTitle' }
           ]
         }
       ],
@@ -43,6 +45,7 @@ export default defineConfig({
           text: '数据&状态',
           items: [
             { text: 'useToggle', link: '/pages/useToggle' },
+            { text: 'useCycleList', link: '/pages/useCycleList' },
             { text: 'useStorage', link: '/pages/useStorage' },
             { text: 'useHistory', link: '/pages/useHistory' }
           ]
@@ -63,7 +66,7 @@ export default defineConfig({
           items: [{ text: 'useMouse', link: '/pages/useMouse' }]
         },
         {
-          text: '其他',
+          text: '浏览器',
           items: [{ text: 'useTitle', link: '/pages/useTitle' }]
         }
       ]
