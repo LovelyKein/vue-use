@@ -1,3 +1,7 @@
+export * from './browser/useTitle'
 export * from './data/useCycleList'
 export * from './data/useStorage'
 export * from './data/useToggle'
+export * from './events/useMouse'
+export * from './utils/debounce'
+export * from './utils/throttle'

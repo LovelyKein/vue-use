@@ -8,4 +8,6 @@ elit
 gitee
 kein
 kyle
+mousemove
 vueuse
+vitepress

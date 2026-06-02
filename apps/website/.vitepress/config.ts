@@ -36,7 +36,8 @@ export default defineConfig({
             { text: 'DOM 元素', link: '/pages/useElement' },
             { text: '异步任务', link: '/pages/useTasks' },
             { text: '事件', link: '/pages/useMouse' },
-            { text: '浏览器', link: '/pages/useTitle' }
+            { text: '浏览器', link: '/pages/useTitle' },
+            { text: '工具函数', link: '/pages/debounce' }
           ]
         }
       ],
@@ -68,6 +69,13 @@ export default defineConfig({
         {
           text: '浏览器',
           items: [{ text: 'useTitle', link: '/pages/useTitle' }]
+        },
+        {
+          text: '工具函数',
+          items: [
+            { text: 'debounce', link: '/pages/debounce' },
+            { text: 'throttle', link: '/pages/throttle' }
+          ]
         }
       ]
     },

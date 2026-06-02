@@ -38,8 +38,9 @@ export default defineConfig([
     },
     rules: {
       'no-console': ['error', { allow: ['warn', 'error'] }],
-      'no-unused-vars': 'warn',
       'no-undef': 'warn',
+
+      '@typescript-eslint/no-explicit-any': 'warn',
 
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'warn',
