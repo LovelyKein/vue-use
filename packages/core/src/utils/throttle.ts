@@ -1,26 +1,12 @@
-export interface ThrottleOptions {
-  /**
-   * 是否在开始时立即执行一次
-   * @default true
-   */
-  immediate?: boolean
-}
-
 type ThrottleFn = (...args: any[]) => void
 
 /**
  * 节流函数
  * @param fn 要节流的函数
  * @param delay 节流时间间隔
- * @param options 节流选项
- * @param options.immediate 是否在开始时立即执行一次
  * @returns 节流后的函数
  */
-export function throttle<T extends ThrottleFn>(
-  fn: T,
-  delay: number
-  // options: ThrottleOptions = {}
-): (this: unknown, ...args: Parameters<T>) => void {
+export function throttle<T extends ThrottleFn>(fn: T, delay: number): (this: unknown, ...args: Parameters<T>) => void {
   if (typeof fn !== 'function') {
     throw new Error('fn must be a function')
   }
@@ -28,11 +14,8 @@ export function throttle<T extends ThrottleFn>(
     throw new Error('delay must be a positive number')
   }
 
-  // const { immediate = true } = options
-
   // 上次执行时间
   let last: number = 0
-
   return function (this: unknown, ...args: Parameters<T>) {
     // 当前执行时间
     const now = Date.now()
@@ -43,3 +26,25 @@ export function throttle<T extends ThrottleFn>(
     }
   }
 }
+
+// // 定时器版本（不推荐）
+// /**
+//  * 节流函数（定时器版本）
+//  * @param fn 要节流的函数
+//  * @param delay 节流时间间隔
+//  * @returns 节流后的函数
+//  */
+// export function throttleWithTimer<T extends ThrottleFn>(
+//   fn: T,
+//   delay: number
+// ): (this: unknown, ...args: Parameters<T>) => void {
+//   let timer: ReturnType<typeof setTimeout> | null = null
+
+//   return function (this: unknown, ...args: Parameters<T>) {
+//     if (timer) clearTimeout(timer)
+//     timer = setTimeout(() => {
+//       fn.apply(this, args)
+//       timer = null
+//     }, delay)
+//   }
+// }
