@@ -1,11 +1,12 @@
 node_modules
-**/dist
+dist
 .dependencygraph
 
 **/*/.vitepress/cache/
 **/*/.vitepress/dist/
 
-
+# Vitest 报告与构建产物
+.vitest/
 
 .env
 .env.test

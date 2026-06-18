@@ -35,15 +35,18 @@ export function debounce<T extends DebounceFn>(
 
   return function (this: unknown, ...args: Parameters<T>) {
     const isFirstCall = immediate && !timer
-    if (isFirstCall) {
-      fn.apply(this, args)
-      return
-    }
 
     if (timer) clearTimeout(timer)
+
     timer = setTimeout(() => {
-      fn.apply(this, args)
       timer = null
+      if (!immediate) {
+        fn.apply(this, args)
+      }
     }, delay)
+
+    if (isFirstCall) {
+      fn.apply(this, args)
+    }
   }
 }
