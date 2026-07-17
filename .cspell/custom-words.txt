@@ -11,4 +11,5 @@ kyle
 mousemove
 prio
 vitepress
+Vitest
 vueuse
