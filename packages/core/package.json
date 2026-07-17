@@ -2,8 +2,17 @@
   "name": "@kyle-vueuse/core",
   "version": "1.0.0",
   "type": "module",
+  "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
   "files": [
     "dist",
     "package.json"
