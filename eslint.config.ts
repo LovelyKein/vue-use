@@ -42,6 +42,7 @@ export default defineConfig([
       'no-undef': 'warn',
 
       '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-expressions': 'off',
 
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'warn',
