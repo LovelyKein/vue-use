@@ -14,29 +14,35 @@ export function useOpenComp<T extends ComponentPublicInstance = ComponentPublicI
 ) {
   let timeoutId: ReturnType<typeof setTimeout> | null = null
 
+  function stopTimeout() {
+    if (!timeoutId) return
+    clearTimeout(timeoutId)
+    timeoutId = null
+  }
+
+  function execution(instance: T) {
+    const method = (instance as Record<string, unknown>)[funcName]
+    if (typeof method !== 'function') {
+      console.warn(`useOpenComp: ${funcName} is not a function`)
+      return
+    }
+    ;(method as (...args: Array<unknown>) => unknown).apply(instance, params)
+  }
+
   const instance = instanceRef.value
   if (instance) {
-    const method = (instance as Record<string, unknown>)[funcName]
-    if (typeof method === 'function') {
-      timeoutId && clearTimeout(timeoutId)
-      ;(method as (...args: Array<unknown>) => unknown).apply(instance, params)
-    }
+    execution(instance)
     return
   }
 
   const stopWatch = watch(
     instanceRef,
-    async (instance) => {
+    (instance) => {
       if (instance) {
-        const method = (instance as Record<string, unknown>)[funcName]
-        if (typeof method !== 'function') {
-          console.warn(`useOpenComp: ${funcName} is not a function`)
-          stopWatch()
-          return
-        }
-
+        stopTimeout()
         stopWatch()
-        ;(method as (...args: Array<unknown>) => unknown).apply(instance, params)
+
+        execution(instance)
       }
     },
     { immediate: true, flush: 'post' }
@@ -44,8 +50,9 @@ export function useOpenComp<T extends ComponentPublicInstance = ComponentPublicI
 
   // 超时控制
   timeoutId = setTimeout(() => {
-    timeoutId && clearTimeout(timeoutId)
-    console.warn(`useOpenComp: ${instanceRef.value?.$options.name} load timeout`)
+    stopTimeout()
     stopWatch()
+    const compName = (instanceRef.value as unknown as { $?: { type?: { name?: string } } })?.$?.type?.name
+    console.warn(`useOpenComp: ${compName ?? 'Anonymous'} load timeout`)
   }, 5000)
 }
