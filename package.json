@@ -17,7 +17,6 @@
     "spellcheck": "cspell lint --dot --gitignore --show-suggestions  \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\"",
     "dev:doc": "pnpm --filter website dev",
     "build:doc": "pnpm --filter website build",
-    "preview:doc": "pnpm --filter website preview",
     "dev:core": "pnpm --filter core dev",
     "build:core": "pnpm --filter core build",
     "publish": "pnpm --filter core publish"
@@ -40,7 +39,8 @@
     ],
     "**/*.{ts,tsx}": [
       "eslint --fix",
-      "prettier --cache --write --parser=typescript"
+      "prettier --cache --write --parser=typescript",
+      "pnpm exec vitest related --run"
     ],
     "**/*.{md,json,html}": [
       "prettier --cache --write"
