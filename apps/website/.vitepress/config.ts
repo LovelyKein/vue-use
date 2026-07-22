@@ -34,9 +34,12 @@ export default defineConfig({
           items: [
             { text: '数据&状态', link: '/pages/useToggle' },
             { text: 'DOM 元素', link: '/pages/useElement' },
+            { text: 'Vue', link: '/pages/useOpenComp' },
             { text: '异步任务', link: '/pages/useTasks' },
             { text: '事件', link: '/pages/useMouse' },
             { text: '浏览器', link: '/pages/useTitle' },
+            { text: '文件分片', link: '/pages/useFileSplit' },
+            { text: '额外脚本', link: '/pages/useExtraScript' },
             { text: '工具函数', link: '/pages/debounce' }
           ]
         }
@@ -53,7 +56,14 @@ export default defineConfig({
         },
         {
           text: 'DOM 元素',
-          items: [{ text: 'useElement', link: '/pages/useElement' }]
+          items: [
+            { text: 'useElement', link: '/pages/useElement' },
+            { text: 'useExtraScript', link: '/pages/useExtraScript' }
+          ]
+        },
+        {
+          text: 'Vue',
+          items: [{ text: 'useOpenComp', link: '/pages/useOpenComp' }]
         },
         {
           text: '异步任务',
@@ -68,7 +78,10 @@ export default defineConfig({
         },
         {
           text: '浏览器',
-          items: [{ text: 'useTitle', link: '/pages/useTitle' }]
+          items: [
+            { text: 'useTitle', link: '/pages/useTitle' },
+            { text: 'useFileSplit', link: '/pages/useFileSplit' }
+          ]
         },
         {
           text: '工具函数',

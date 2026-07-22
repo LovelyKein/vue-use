@@ -30,9 +30,30 @@ const { value, set, remove } = useStorage('vueuse-storage-demo', {
 
 <script setup lang="ts">
 import { useStorage } from '@kyle-vueuse/core'
-const { value, set, remove } = useStorage('vueuse-storage-demo', {
-  initialValue: 'Hello VueUse'
-})
+import type { Ref } from 'vue'
+import { ref } from 'vue'
+
+type StorageDemo = {
+  value: Ref<string>
+  set: (val: string, newExpired?: number) => void
+  remove: () => void
+}
+
+const initialValue = 'Hello VueUse'
+const fallbackValue = ref(initialValue)
+const fallbackSet = (val: string) => {
+  fallbackValue.value = val
+}
+const fallbackRemove = () => {
+  fallbackValue.value = initialValue
+}
+
+const demo: StorageDemo =
+  typeof window === 'undefined'
+    ? { value: fallbackValue, set: fallbackSet, remove: fallbackRemove }
+    : useStorage<string>('vueuse-storage-demo', { initialValue })
+
+const { value, set, remove } = demo
 </script>
 
 <div :class="$style.demo">
