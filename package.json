@@ -5,8 +5,8 @@
   "type": "module",
   "packageManager": "pnpm@10.13.1",
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=9.0.0",
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0",
     "pnpm": ">=10.0.0"
   },
   "scripts": {
@@ -19,7 +19,9 @@
     "build:doc": "pnpm --filter website build",
     "dev:core": "pnpm --filter core dev",
     "build:core": "pnpm --filter core build",
-    "publish": "pnpm --filter core publish"
+    "publish:core": "pnpm --filter core publish",
+    "dev:components": "pnpm --filter components dev",
+    "build:components": "pnpm --filter components build"
   },
   "config": {
     "commitizen": {

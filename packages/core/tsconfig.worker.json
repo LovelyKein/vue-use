@@ -7,7 +7,8 @@
     "strict": true,
     "skipLibCheck": true,
     "declaration": false,
-    "declarationMap": false
+    "declarationMap": false,
+    "rootDir": "./src" /* 与主 tsconfig 对齐，避免 worker 跨目录 import type 时触发 TS6059；emit 路径会去掉 src/ 前缀 */
   },
   "include": ["src/workers/**/*.ts"]
 }

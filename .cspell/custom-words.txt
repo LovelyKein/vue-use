@@ -9,8 +9,10 @@ gitee
 kein
 kyle
 mousemove
-unstub
 prio
+unshift
+unstub
+vite
 vitepress
 Vitest
 vueuse

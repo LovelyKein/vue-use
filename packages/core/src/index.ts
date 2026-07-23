@@ -1,3 +1,4 @@
+export * from './asyncTask/useIdleTask'
 export * from './asyncTask/useTasks'
 export * from './browser/useFileSplit'
 export * from './browser/useTitle'

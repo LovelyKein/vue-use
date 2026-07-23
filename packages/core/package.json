@@ -15,13 +15,13 @@
   "sideEffects": false,
   "files": [
     "dist",
-    "package.json"
+    "!**/__tests__/**"
   ],
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "typecheck": "vue-tsc --noEmit",
-    "publish": "np --no-publish --branch=master && npm publish"
+    "publish": "np --no-publish --branch=main && npm publish"
   },
   "keywords": [],
   "author": "Kyle",
@@ -29,7 +29,9 @@
   "license": "ISC",
   "description": "Vue Composition API",
   "dependencies": {
-    "spark-md5": "^3.0.2",
+    "spark-md5": "^3.0.2"
+  },
+  "peerDependencies": {
     "vue": "~3.5.25",
     "vue-demi": "^0.14.10"
   },
@@ -38,6 +40,8 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/spark-md5": "^3.0.5",
-    "rollup": "^4.53.3"
+    "rollup": "^4.53.3",
+    "vue": "~3.5.25",
+    "vue-demi": "^0.14.10"
   }
 }

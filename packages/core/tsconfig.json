@@ -73,6 +73,8 @@
     // "noEmitOnError": true,                            /* Disable emitting files if any type checking errors are reported. */
     // "preserveConstEnums": true,                       /* Disable erasing 'const enum' declarations in generated code. */
     "declarationDir": "dist/types" /* Specify the output directory for generated declaration files. */,
+    "rootDir": "./src" /* 显式锁死 rootDir，避免 TS 推断漂移导致 emit 路径多出 src/ 这一层 */,
+    "outDir": "./dist" /* rollup 插件会接管 emit，但显式声明 outDir 便于直接 tsc 调用 */,
 
     /* Interop Constraints */
     // "isolatedModules": true,                          /* Ensure that each file can be safely transpiled without relying on other imports. */
@@ -111,5 +113,5 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "**/__tests__/**"]
 }

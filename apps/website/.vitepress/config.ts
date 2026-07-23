@@ -69,6 +69,7 @@ export default defineConfig({
           text: '异步任务',
           items: [
             { text: 'useTasks', link: '/pages/useTasks' },
+            { text: 'useIdleTask', link: '/pages/useIdleTask' },
             { text: 'useFetch', link: '/pages/useFetch' }
           ]
         },
