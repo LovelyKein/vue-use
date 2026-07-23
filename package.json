@@ -32,7 +32,9 @@
     "vueuse",
     "hooks",
     "composition-api",
-    "utils"
+    "utils",
+    "components",
+    "vue3"
   ],
   "lint-staged": {
     "**/*.{js,jsx}": [
@@ -80,6 +82,7 @@
     "nrm": "^2.1.0",
     "prettier": "^3.8.3",
     "turbo": "^2.6.3",
+    "typescript": "~6.0.3",
     "typescript-eslint": "^8.48.1",
     "vitest": "^4.1.9",
     "vue-eslint-parser": "^10.4.0",
