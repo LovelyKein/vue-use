@@ -1,1 +1,1 @@
-pnpm exec lint-staged && pnpm run typecheck && pnpm run test:related && pnpm run spellcheck
+pnpm exec lint-staged && pnpm run typecheck && pnpm run test && pnpm run spellcheck
