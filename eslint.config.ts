@@ -52,5 +52,13 @@ export default defineConfig([
       'vue/valid-define-emits': 'error', // 校验 defineEmits 定义是否正确
       'vue/multi-word-component-names': 'off' // 校验组件名称是否为多单词
     }
+  },
+  // 测试文件配置，放宽类型校验
+  {
+    files: ['**/__tests__/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off', // 允许使用 any 类型
+      '@typescript-eslint/no-unused-vars': 'warn' // 测试里偶尔留 placeholder
+    }
   }
 ])

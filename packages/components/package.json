@@ -1,0 +1,45 @@
+{
+  "name": "@kyle-vueuse/components",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!**/__tests__/**"
+  ],
+  "scripts": {
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "components"
+  ],
+  "author": "Kyle",
+  "email": "lovelykein@foxmail.com",
+  "license": "ISC",
+  "description": "Kyle-VueUse 组件库",
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@kyle-vueuse/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "sass-embedded": "^1.100.0",
+    "vite": "^8.1.1",
+    "vue": "^3.5.39"
+  }
+}

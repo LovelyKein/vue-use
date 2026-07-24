@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+    "types": ["vite/client"],
+
+    /* 严格性 */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+
+    /* 解析 .vue */
+    "allowImportingTsExtensions": false,
+
+    /* emit 配置：tsc 只做 typecheck，emit 交给 vite */
+    "noEmit": false /* 必须 false，vue-tsc --emitDeclarationOnly 才能产出 .d.ts；vite 不读 emit 相关字段，不影响 js 产物 */,
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "dist/types",
+    "outDir": "./dist",
+    "rootDir": "./src" /* 显式锁死 rootDir，避免 vite/tsc 推断漂移 */,
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "exclude": ["node_modules", "dist", "**/__tests__/**"]
+}
