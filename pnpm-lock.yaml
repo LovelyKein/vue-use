@@ -95,6 +95,9 @@ importers:
 
   apps/website:
     dependencies:
+      '@kyle-vueuse/components':
+        specifier: workspace:*
+        version: link:../../packages/components
       '@kyle-vueuse/core':
         specifier: workspace:*
         version: link:../../packages/core

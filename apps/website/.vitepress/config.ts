@@ -90,6 +90,10 @@ export default defineConfig({
             { text: 'debounce', link: '/pages/debounce' },
             { text: 'throttle', link: '/pages/throttle' }
           ]
+        },
+        {
+          text: '组件',
+          items: [{ text: 'VirtualList', link: '/pages/virtualList' }]
         }
       ]
     },
