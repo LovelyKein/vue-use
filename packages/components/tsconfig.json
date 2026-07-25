@@ -6,6 +6,9 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "jsx": "preserve",
     "types": ["vite/client"],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
 
     /* 严格性 */
     "strict": true,
