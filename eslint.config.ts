@@ -58,7 +58,9 @@ export default defineConfig([
     files: ['**/__tests__/**/*.ts'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off', // 允许使用 any 类型
-      '@typescript-eslint/no-unused-vars': 'warn' // 测试里偶尔留 placeholder
+      '@typescript-eslint/no-unused-vars': 'warn', // 测试里偶尔留 placeholder
+
+      'vue/one-component-per-file': 'off' // 测试里允许多个组件
     }
   }
 ])
