@@ -10,15 +10,19 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./style.css": "./dist/style.css"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
     "dist",
     "!**/__tests__/**"
   ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "test": "vitest run --passWithNoTests",
     "typecheck": "vue-tsc --noEmit"
   },
   "keywords": [

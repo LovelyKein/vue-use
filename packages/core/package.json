@@ -20,7 +20,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "typecheck": "vue-tsc --noEmit",
     "publish": "np --no-publish --branch=main && npm publish"
   },

@@ -33,9 +33,12 @@ export default defineConfig({
         // CJS 消费者必须用 `pkg.default.install` 才能拿到插件
         exports: 'named',
         // asset 命名
+        // Vite lib 模式下 CSS 默认以入口 chunk name 命名（如 components.css）
+        // 统一重命名为 dist/style.css，便于消费者通过 package exports 引用
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'style.css'
-          return `assets/${assetInfo.name}`
+          const name = assetInfo.names?.[0] ?? assetInfo.name ?? ''
+          if (name.endsWith('.css')) return 'style.css'
+          return `assets/${name}`
         }
       }
     }
