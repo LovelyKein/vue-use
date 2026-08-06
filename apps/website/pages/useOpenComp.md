@@ -13,7 +13,7 @@
 ```ts
 import type { ComponentPublicInstance } from 'vue'
 import { ref } from 'vue'
-import { useOpenComp } from '@kyle-vueuse/core'
+import { useOpenComp } from '@kyle-vueuse/hooks'
 
 const childRef = ref<ComponentPublicInstance | null>(null)
 
@@ -27,7 +27,7 @@ function openChild() {
 <script setup lang="ts">
 import { computed, defineComponent, h, ref } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
-import { useOpenComp } from '@kyle-vueuse/core'
+import { useOpenComp } from '@kyle-vueuse/hooks'
 
 const childRef = ref<ComponentPublicInstance | null>(null)
 const isMounted = ref(false)

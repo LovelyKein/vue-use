@@ -36,16 +36,16 @@
 
 ## 如何使用
 
-首先，安装 `@kyle-vueuse/core`：
+首先，安装 `@kyle-vueuse/hooks`：
 
 ```bash
-npm install @kyle-vueuse/core
+npm install @kyle-vueuse/hooks
 ```
 
 然后在你的 Vue3 项目中引入并使用它：
 
 ```ts
-import { useFeature } from '@kyle-vueuse/core'
+import { useFeature } from '@kyle-vueuse/hooks'
 
 export default {
   setup() {

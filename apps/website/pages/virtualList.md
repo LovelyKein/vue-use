@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { VirtualList } from '@kyle-vueuse/components'
-import '@kyle-vueuse/components/style.css'
+// import '@kyle-vueuse/components/style.css'
 
 const list = ref(Array.from({ length: 10000 }, (_, i) => ({ id: i, text: `Item ${i + 1}` })))
 </script>
@@ -47,7 +47,7 @@ const list = ref(Array.from({ length: 10000 }, (_, i) => ({ id: i, text: `Item $
 <script setup lang="ts">
 import { ref } from 'vue'
 import { VirtualList } from '@kyle-vueuse/components'
-import '@kyle-vueuse/components/style.css'
+// import '@kyle-vueuse/components/style.css'
 
 const list = ref(
   Array.from({ length: 5000 }, (_, i) => ({

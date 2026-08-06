@@ -22,6 +22,10 @@
   ],
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "build:css-in-js": "vite build --config vite.config.cssInJs.ts && vue-tsc --emitDeclarationOnly",
+    "build:style": "vite build --config vite.config.onStyleCss.ts && vue-tsc --emitDeclarationOnly",
+    "build:component-css": "vite build --config vite.config.componentCss.ts && vue-tsc --emitDeclarationOnly",
+    "build:component-css-in-js": "vite build --config vite.config.componentCssInJs.ts && vue-tsc --emitDeclarationOnly",
     "test": "vitest run --passWithNoTests",
     "typecheck": "vue-tsc --noEmit"
   },
@@ -38,12 +42,13 @@
     "vue": "^3.5.0"
   },
   "dependencies": {
-    "@kyle-vueuse/core": "workspace:*"
+    "@kyle-vueuse/hooks": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.7",
     "sass-embedded": "^1.100.0",
     "vite": "^8.1.1",
+    "vite-plugin-css-injected-by-js": "^5.0.2",
     "vue": "^3.5.39"
   }
 }

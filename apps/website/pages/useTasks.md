@@ -10,7 +10,7 @@
 
 ```vue
 <script setup lang="ts">
-import { useTasks } from '@kyle-vueuse/core'
+import { useTasks } from '@kyle-vueuse/hooks'
 
 const { addTask, remainCount, runningCount } = useTasks(3, 'order')
 
@@ -51,7 +51,7 @@ addTask(fakeRequest(600, '中优'), 5)
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useTasks } from '@kyle-vueuse/core'
+import { useTasks } from '@kyle-vueuse/hooks'
 
 // 顺序模式 + 并发 3
 const orderHook = useTasks(3, 'order')

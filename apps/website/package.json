@@ -14,7 +14,7 @@
   "description": "Vue Composition API",
   "dependencies": {
     "@kyle-vueuse/components": "workspace:*",
-    "@kyle-vueuse/core": "workspace:*",
+    "@kyle-vueuse/hooks": "workspace:*",
     "vue": "~3.5.25"
   },
   "devDependencies": {

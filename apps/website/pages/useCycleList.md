@@ -8,7 +8,7 @@
 
 ```vue
 <script setup lang="ts">
-import { useCycleList } from '@kyle-vueuse/core'
+import { useCycleList } from '@kyle-vueuse/hooks'
 
 const { current, toggle } = useCycleList(['dog', 'cat', 'bird'], 'cat')
 </script>
@@ -24,7 +24,7 @@ const { current, toggle } = useCycleList(['dog', 'cat', 'bird'], 'cat')
 ### 在线演示
 
 <script setup lang="ts">
-import { useCycleList } from '@kyle-vueuse/core'
+import { useCycleList } from '@kyle-vueuse/hooks'
 
 const { current, toggle } = useCycleList(['🐶 dog', '🐱 cat', '🐦 bird'], '🐱 cat')
 </script>

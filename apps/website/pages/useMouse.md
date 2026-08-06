@@ -6,7 +6,7 @@
 
 ```vue
 <script setup lang="ts">
-import { useMouse } from '@kyle-vueuse/core'
+import { useMouse } from '@kyle-vueuse/hooks'
 
 const { x, y } = useMouse()
 </script>
@@ -22,7 +22,7 @@ const { x, y } = useMouse()
 ### 在线演示
 
 <script setup lang="ts">
-import { useMouse } from '@kyle-vueuse/core'
+import { useMouse } from '@kyle-vueuse/hooks'
 
 const { x, y } = useMouse()
 </script>

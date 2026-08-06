@@ -1,5 +1,5 @@
 {
-  "name": "@kyle-vueuse/core",
+  "name": "@kyle-vueuse/hooks",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.cjs",
@@ -24,7 +24,11 @@
     "typecheck": "vue-tsc --noEmit",
     "publish": "np --no-publish --branch=main && npm publish"
   },
-  "keywords": [],
+  "keywords": [
+    "vue",
+    "composition-api",
+    "hooks"
+  ],
   "author": "Kyle",
   "email": "lovelykein@foxmail.com",
   "license": "ISC",

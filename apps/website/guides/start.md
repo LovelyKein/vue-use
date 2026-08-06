@@ -4,17 +4,17 @@
 
 ## 安装
 
-首先，通过 npm 安装 `@kyle-vueuse/core`：
+首先，通过 npm 安装 `@kyle-vueuse/hooks`：
 
 ```bash
-npm install @kyle-vueuse/core
+npm install @kyle-vueuse/hooks
 ```
 
 ## 如何使用
 
 ### 示例：`useToggle` 示例
 
-在 Vue 项目中，我们可以利用 `@kyle-vueuse/core` 库来封装和管理响应式状态。以下是一个自定义 Hook `useToggle` 的示例：
+在 Vue 项目中，我们可以利用 `@kyle-vueuse/hooks` 库来封装和管理响应式状态。以下是一个自定义 Hook `useToggle` 的示例：
 
 ```ts
 import { ref } from 'vue-demi'
@@ -47,7 +47,7 @@ export const useToggle = (): UseToggle => {
 
 ```ts
 import { defineComponent } from 'vue'
-import { useToggle } from '@kyle-vueuse/core'
+import { useToggle } from '@kyle-vueuse/hooks'
 
 export default defineComponent({
   setup() {

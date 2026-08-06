@@ -7,7 +7,7 @@
 ### 仅加载脚本
 
 ```ts
-import { useExtraScript } from '@kyle-vueuse/core'
+import { useExtraScript } from '@kyle-vueuse/hooks'
 
 await useExtraScript('https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
 ```
@@ -15,7 +15,7 @@ await useExtraScript('https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
 ### 加载并获取全局变量
 
 ```ts
-import { useExtraScript } from '@kyle-vueuse/core'
+import { useExtraScript } from '@kyle-vueuse/hooks'
 
 const axios = (await useExtraScript('https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js', 'axios')) as any
 await axios.get('https://example.com')
@@ -24,7 +24,7 @@ await axios.get('https://example.com')
 ### 传入 script 属性
 
 ```ts
-import { useExtraScript } from '@kyle-vueuse/core'
+import { useExtraScript } from '@kyle-vueuse/hooks'
 
 await useExtraScript('https://example.com/sdk.js', 'SDK', {
   async: true,

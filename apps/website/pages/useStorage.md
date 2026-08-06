@@ -8,7 +8,7 @@
 
 ```vue
 <script setup lang="ts">
-import { useStorage } from '@kyle-vueuse/core'
+import { useStorage } from '@kyle-vueuse/hooks'
 
 const { value, set, remove } = useStorage('vueuse-storage-demo', {
   initialValue: 'Hello VueUse',
@@ -29,7 +29,7 @@ const { value, set, remove } = useStorage('vueuse-storage-demo', {
 ### 在线演示
 
 <script setup lang="ts">
-import { useStorage } from '@kyle-vueuse/core'
+import { useStorage } from '@kyle-vueuse/hooks'
 import type { Ref } from 'vue'
 import { ref } from 'vue'
 

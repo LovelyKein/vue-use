@@ -1,8 +1,8 @@
-# @kyle-vueuse/core
+# @kyle-vueuse/hooks
 
 > 基于 Vue 3 Composition API 的组合式工具库
 
-`@kyle-vueuse/core` 是 Kyle-VueUse 工具集的核心包，提供一系列经过工程化打磨的 Composition API 工具，涵盖异步任务、文件处理、DOM 操作、状态管理、事件监听等常见场景。所有 API 均使用 TypeScript 编写，类型完备、开箱即用。
+`@kyle-vueuse/hooks` 是 Kyle-VueUse 工具集的核心包，提供一系列经过工程化打磨的 Composition API 工具，涵盖异步任务、文件处理、DOM 操作、状态管理、事件监听等常见场景。所有 API 均使用 TypeScript 编写，类型完备、开箱即用。
 
 ## 特性
 
@@ -17,13 +17,13 @@
 
 ```bash
 # npm
-npm install @kyle-vueuse/core
+npm install @kyle-vueuse/hooks
 
 # pnpm
-pnpm add @kyle-vueuse/core
+pnpm add @kyle-vueuse/hooks
 
 # yarn
-yarn add @kyle-vueuse/core
+yarn add @kyle-vueuse/hooks
 ```
 
 > 需要 Vue 3.5+，显式依赖 `vue` 与 `vue-demi`。
@@ -31,7 +31,7 @@ yarn add @kyle-vueuse/core
 ## 快速开始
 
 ```ts
-import { useToggle } from '@kyle-vueuse/core'
+import { useToggle } from '@kyle-vueuse/hooks'
 
 export default {
   setup() {
@@ -104,7 +104,7 @@ export default {
 ### `useFileSplit`：大文件分片 + 并行哈希
 
 ```ts
-import { useFileSplit } from '@kyle-vueuse/core'
+import { useFileSplit } from '@kyle-vueuse/hooks'
 
 async function handleFile(file: File) {
   const { chunks } = await useFileSplit(file, 2) // 2MB / chunk
@@ -123,7 +123,7 @@ async function handleFile(file: File) {
 ### `useStorage`：带过期时间的本地存储
 
 ```ts
-import { useStorage } from '@kyle-vueuse/core'
+import { useStorage } from '@kyle-vueuse/hooks'
 
 const { value, set, remove } = useStorage('user-token', {
   initialValue: '',
@@ -139,7 +139,7 @@ const { value, set, remove } = useStorage('user-token', {
 ### `useTasks`：并发可控的异步任务队列
 
 ```ts
-import { useTasks } from '@kyle-vueuse/core'
+import { useTasks } from '@kyle-vueuse/hooks'
 
 const { addTask, runningCount, remainCount } = useTasks(6, 'priority')
 

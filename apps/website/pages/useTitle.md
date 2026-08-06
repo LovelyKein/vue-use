@@ -8,7 +8,7 @@
 
 ```vue
 <script setup lang="ts">
-import { useTitle } from '@kyle-vueuse/core'
+import { useTitle } from '@kyle-vueuse/hooks'
 
 const title = useTitle()
 </script>
@@ -23,7 +23,7 @@ const title = useTitle()
 ### 在线演示
 
 <script setup lang="ts">
-import { useTitle } from '@kyle-vueuse/core'
+import { useTitle } from '@kyle-vueuse/hooks'
 
 const title = useTitle(null, { backTrack: true })
 </script>

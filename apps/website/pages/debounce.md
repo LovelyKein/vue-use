@@ -5,7 +5,7 @@
 ## 基本用法
 
 ```ts
-import { debounce } from '@kyle-vueuse/core'
+import { debounce } from '@kyle-vueuse/hooks'
 
 const handleInput = debounce((val) => {
   console.log('输入内容:', val)

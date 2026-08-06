@@ -20,11 +20,12 @@
     "spellcheck": "cspell lint --dot --gitignore --show-suggestions  \"(packages|apps)/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md)\"",
     "dev:doc": "pnpm --filter website dev",
     "build:doc": "pnpm --filter website build",
-    "dev:core": "pnpm --filter core dev",
-    "build:core": "pnpm --filter core build",
-    "publish:core": "pnpm --filter core publish",
+    "dev:hooks": "pnpm --filter hooks dev",
+    "build:hooks": "pnpm --filter hooks build",
+    "publish:hooks": "pnpm --filter hooks publish",
     "dev:components": "pnpm --filter components dev",
-    "build:components": "pnpm --filter components build"
+    "build:components": "pnpm --filter components build",
+    "publish:components": "pnpm --filter components publish"
   },
   "config": {
     "commitizen": {

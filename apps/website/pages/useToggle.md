@@ -10,7 +10,7 @@
 
 ```vue
 <script setup lang="ts">
-import { useToggle } from '@kyle-vueuse/core'
+import { useToggle } from '@kyle-vueuse/hooks'
 
 const { current, toggle } = useToggle()
 </script>
@@ -30,7 +30,7 @@ const { current, toggle } = useToggle()
 
 ```vue
 <script setup lang="ts">
-import { useToggle } from '@kyle-vueuse/core'
+import { useToggle } from '@kyle-vueuse/hooks'
 
 const { current, toggle } = useToggle('On', 'Off')
 </script>
@@ -46,7 +46,7 @@ const { current, toggle } = useToggle('On', 'Off')
 ### 在线演示
 
 <script setup lang="ts">
-import { useToggle } from '@kyle-vueuse/core'
+import { useToggle } from '@kyle-vueuse/hooks'
 const { current: boolState, toggle: toggleBool } = useToggle()
 const { current: customState, toggle: toggleCustom } = useToggle('On', 'Off')
 </script>

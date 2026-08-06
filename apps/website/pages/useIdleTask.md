@@ -7,7 +7,7 @@
 `useIdleTask` 接收一个**同步函数**作为任务，返回 `Promise`，任务的返回值会作为 Promise 的结果。
 
 ```ts
-import { useIdleTask } from '@kyle-vueuse/core'
+import { useIdleTask } from '@kyle-vueuse/hooks'
 
 // 在主线程空闲时计算密集结果
 const result = await useIdleTask(() => {
@@ -23,7 +23,7 @@ console.log('结果:', result)
 任务抛错会通过 Promise reject 传出，**不会**被静默吞掉。
 
 ```ts
-import { useIdleTask } from '@kyle-vueuse/core'
+import { useIdleTask } from '@kyle-vueuse/hooks'
 
 try {
   await useIdleTask(() => {
@@ -38,7 +38,7 @@ try {
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useIdleTask } from '@kyle-vueuse/core'
+import { useIdleTask } from '@kyle-vueuse/hooks'
 
 const logs = ref<string[]>([])
 const isRunning = ref(false)

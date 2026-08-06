@@ -5,7 +5,7 @@
 ## 基本用法
 
 ```ts
-import { useFileSplit } from '@kyle-vueuse/core'
+import { useFileSplit } from '@kyle-vueuse/hooks'
 
 async function handleFile(file: File) {
   const { chunks } = await useFileSplit(file, 2)
@@ -19,7 +19,7 @@ async function handleFile(file: File) {
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useFileSplit } from '@kyle-vueuse/core'
+import { useFileSplit } from '@kyle-vueuse/hooks'
 
 const chunkSize = ref(2)
 const chunkCount = ref<number | null>(null)

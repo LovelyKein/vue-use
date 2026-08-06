@@ -5,7 +5,7 @@
 ## 基本用法
 
 ```ts
-import { throttle } from '@kyle-vueuse/core'
+import { throttle } from '@kyle-vueuse/hooks'
 
 const handleScroll = throttle(() => {
   console.log('页面滚动')
