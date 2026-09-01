@@ -27,7 +27,12 @@
     "build:component-css": "vite build --config vite.config.componentCss.ts && vue-tsc --emitDeclarationOnly",
     "build:component-css-in-js": "vite build --config vite.config.componentCssInJs.ts && vue-tsc --emitDeclarationOnly",
     "test": "vitest run --passWithNoTests",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "publish": "np --no-publish --branch=main && pnpm publish"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "vue",

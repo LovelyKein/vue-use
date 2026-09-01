@@ -22,7 +22,11 @@
     "dev": "rollup -c -w",
     "test": "vitest run --passWithNoTests",
     "typecheck": "vue-tsc --noEmit",
-    "publish": "np --no-publish --branch=main && npm publish"
+    "publish": "np --no-publish --branch=main && pnpm publish"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "vue",
