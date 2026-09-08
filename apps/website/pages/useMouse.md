@@ -1,4 +1,4 @@
-# `useMouse`
+﻿# `useMouse`
 
 一个用于获取鼠标当前位置的 Composition API 函数。为了提升性能，内部使用了 `throttle`（200ms）来节流 `mousemove` 事件。
 

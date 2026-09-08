@@ -1,4 +1,4 @@
-# `throttle`
+﻿# `throttle`
 
 提供节流功能的工具函数。在指定的延迟时间内，无论函数被调用多少次，都只执行一次。常用于高频事件（如 `scroll`, `mousemove`, `resize`）的性能优化。
 

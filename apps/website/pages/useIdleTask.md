@@ -1,4 +1,4 @@
-# `useIdleTask`
+﻿# `useIdleTask`
 
 一个**在浏览器空闲时段执行耗时任务**的 Composition API 函数。它把任务包进 `requestIdleCallback`，仅在浏览器主线程空闲时执行，剩余时间不足（< 5ms）时递归等待下一次空闲窗口，避免阻塞用户交互。
 

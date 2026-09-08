@@ -13,6 +13,10 @@
     }
   },
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "files": [
     "dist",
     "!**/__tests__/**"
@@ -21,8 +25,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "vitest run --passWithNoTests",
-    "typecheck": "vue-tsc --noEmit",
-    "publish": "np --no-publish --branch=main && npm publish"
+    "typecheck": "vue-tsc --noEmit"
   },
   "keywords": [
     "vue",

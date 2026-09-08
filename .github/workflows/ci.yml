@@ -1,0 +1,66 @@
+name: CI Pipeline
+
+# 触发条件，何时触发 CI Pipeline
+# 只在 main 分支触发
+# 只在 push/pull_request 事件触发
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# 任务，执行哪些操作
+jobs:
+  # 质量检查任务
+  quality:
+    name: Lint · TypeCheck · Test · Build
+    # 运行环境，使用 ubuntu-latest
+    runs-on: ubuntu-latest
+    # 步骤，执行哪些操作
+    steps:
+      # ──── 环境准备 ──────────────────────────────────────
+      # 检出代码副本到工作目录
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      # 安装 pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      # 设置 Node.js 环境，使用 Node.js 24 版本，缓存 pnpm 缓存
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+
+      # 安装依赖，在工作目录运行脚本命令，冻结 lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # ──── 质量校验 ──────────────────────────────────────
+      - name: Run lint
+        run: pnpm run lint
+
+      - name: Run spellcheck
+        run: pnpm run spellcheck
+
+      - name: Type check
+        run: pnpm run typecheck
+
+      - name: Run tests
+        run: pnpm run test
+
+      # ──── 打包构建 ──────────────────────────────────────
+      - name: Build hooks
+        run: pnpm run build:hooks
+
+      - name: Build components
+        run: pnpm run build:components
+
+      - name: Build docs site
+        run: pnpm run build:doc

@@ -1,4 +1,4 @@
-# `useTasks`
+﻿# `useTasks`
 
 一个**并发任务调度器**的 Composition API 函数。它会维护一个内部任务队列，并通过 `concurrency` 参数控制同时执行的最大并发数。支持「顺序执行」和「优先级执行」两种调度模式。
 

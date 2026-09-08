@@ -1,4 +1,4 @@
-# `useStorage`
+﻿# `useStorage`
 
 一个响应式的本地存储 (LocalStorage/SessionStorage) API。提供自动序列化、反序列化、过期时间管理以及多端同步功能。
 

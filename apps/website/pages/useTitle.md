@@ -1,4 +1,4 @@
-# `useTitle`
+﻿# `useTitle`
 
 一个用于获取和设置页面标题 (`document.title`) 的响应式 Composition API 函数。支持监听外部修改和组件卸载时恢复原标题。
 

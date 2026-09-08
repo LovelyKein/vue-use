@@ -1,4 +1,4 @@
-# `useExtraScript`
+﻿# `useExtraScript`
 
 按需插入并加载额外的 `<script>` 脚本。支持传入脚本 URL 与全局变量名（可选），并在同一会话内复用 Promise，避免重复插入同一个脚本。
 

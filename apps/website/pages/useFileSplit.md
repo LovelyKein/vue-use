@@ -1,4 +1,4 @@
-# `useFileSplit`
+﻿# `useFileSplit`
 
 将大文件按指定大小分片，并在浏览器端通过多个 Web Worker 并行计算每个分片的 MD5 哈希。
 
